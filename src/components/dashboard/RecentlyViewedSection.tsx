@@ -108,7 +108,7 @@ export function RecentlyViewedSection() {
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
               <Link
-                to={`/scheme/${scheme.id}`}
+                to={`/schemes/${scheme.id}`}
                 className="group flex items-start gap-4 rounded-2xl border border-white/10 bg-[#111827]/80 backdrop-blur-xl p-5 transition-all hover:border-blue-500/30 hover:bg-white/5"
               >
                 {/* Icon */}

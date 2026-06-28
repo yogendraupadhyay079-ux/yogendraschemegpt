@@ -46,7 +46,7 @@ export default function Sidebar() {
       <MenuItem
         icon={<FileText size={20} />}
         title={t("nav.schemes")}
-        onClick={() => navigate('/scheme')}
+        onClick={() => navigate('/schemes')}
       />
 
       <MenuItem

@@ -88,7 +88,7 @@ export function DeadlineAlertsSection() {
                 transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 <Link
-                  to={`/scheme/${scheme.id}`}
+                  to={`/schemes/${scheme.id}`}
                   className="group flex items-center justify-between rounded-2xl border border-white/10 bg-[#111827]/80 backdrop-blur-xl p-4 transition-all hover:border-white/20 hover:bg-white/5"
                 >
                   <div className="flex items-center gap-4">

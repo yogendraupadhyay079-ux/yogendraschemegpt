@@ -49,7 +49,7 @@ export function AIRecommendationsSection() {
           </div>
         </div>
         <Link
-          to="/scheme"
+          to="/schemes"
           className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-cyan-400 transition hover:bg-white/10"
         >
           {t('dashboard.viewAll')}
@@ -129,7 +129,7 @@ export function AIRecommendationsSection() {
 
                   {/* View Button */}
                   <Link
-                    to={`/scheme/${scheme.id}`}
+                    to={`/schemes/${scheme.id}`}
                     className="flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
                   >
                     {t('dashboard.viewDetails')}

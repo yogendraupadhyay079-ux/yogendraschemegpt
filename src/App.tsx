@@ -49,14 +49,15 @@ function App() {
               <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
               <Route path="/assistant" element={<ProtectedRoute><AIAssistantPage /></ProtectedRoute>} />
               <Route path="/assistant/:id" element={<ProtectedRoute><AIAssistantPage /></ProtectedRoute>} />
-              <Route path="/scheme" element={<ProtectedRoute><SchemePage /></ProtectedRoute>} />
-              <Route path="/scheme/:id" element={<ProtectedRoute><SchemeDetailPage /></ProtectedRoute>} />
+              <Route path="/schemes" element={<ProtectedRoute><SchemePage /></ProtectedRoute>} />
+              <Route path="/schemes/:id" element={<ProtectedRoute><SchemeDetailPage /></ProtectedRoute>} />
               <Route path="/family" element={<ProtectedRoute><FamilyWelfarePage /></ProtectedRoute>} />
-              <Route path="/missed" element={<ProtectedRoute><MissedOpportunitiesPage /></ProtectedRoute>} />
+              <Route path="/opportunities" element={<ProtectedRoute><MissedOpportunitiesPage /></ProtectedRoute>} />
               <Route path="/notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />
               <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
               <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
-              <Route path="/" element={<DashboardPage />} />
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           </Suspense>
         </BrowserRouter>

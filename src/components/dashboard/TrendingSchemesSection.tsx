@@ -122,7 +122,7 @@ export function TrendingSchemesSection() {
                 {/* Actions */}
                 <div className="flex items-center gap-2">
                   <Link
-                    to={`/scheme/${scheme.id}`}
+                    to={`/schemes/${scheme.id}`}
                     className="flex-1 flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
                   >
                     {t('dashboard.viewDetails')}

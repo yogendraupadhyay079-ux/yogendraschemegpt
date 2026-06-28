@@ -7,9 +7,9 @@ import { cn } from '../ui/utils';
 const menuItems = [
   { key: 'dashboard', icon: LayoutDashboard, path: '/dashboard' },
   { key: 'aiAssistant', icon: Bot, path: '/assistant' },
-  { key: 'schemes', icon: FileText, path: '/scheme' },
+  { key: 'schemes', icon: FileText, path: '/schemes' },
   { key: 'familyWelfare', icon: Users, path: '/family' },
-  { key: 'missedOpportunities', icon: AlertTriangle, path: '/missed' },
+  { key: 'missedOpportunities', icon: AlertTriangle, path: '/opportunities' },
   { key: 'notifications', icon: Bell, path: '/notifications' },
   { key: 'profile', icon: User, path: '/profile' },
   { key: 'settings', icon: Settings, path: '/settings' },

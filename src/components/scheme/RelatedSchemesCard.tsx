@@ -97,7 +97,7 @@ export default function RelatedSchemesCard({
             </p>
 
             <Link
-              to={`/scheme/${item.id}`}
+              to={`/schemes/${item.id}`}
               className="mt-6 flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-4 py-3 font-medium text-white"
             >
 
