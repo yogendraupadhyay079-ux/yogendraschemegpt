@@ -1,11 +1,18 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Suspense } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
+import AuthProvider from './components/auth/AuthProvider';
+import { useAuthStore } from './store/authStore';
 import { DashboardPage } from './pages/DashboardPage';
 import { AIAssistantPage } from './pages/AIAssistantPage';
 import { FamilyWelfarePage } from './pages/FamilyWelfarePage';
 import { MissedOpportunitiesPage } from './pages/MissedOpportunitiesPage';
+import { SchemePage } from './pages/SchemePage';
+import { SchemeDetailPage } from './pages/SchemeDetailPage';
+import { NotificationsPage } from './pages/NotificationsPage';
+import { ProfilePage } from './pages/ProfilePage';
+import { SettingsPage } from './pages/SettingsPage';
 
 function LoadingFallback() {
   return (
@@ -18,21 +25,42 @@ function LoadingFallback() {
   );
 }
 
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { user, loading } = useAuthStore();
+
+  if (loading) {
+    return <LoadingFallback />;
+  }
+
+  if (!user) {
+    return <Navigate to="/" replace />;
+  }
+
+  return <>{children}</>;
+}
+
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
-      <BrowserRouter>
-        <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/assistant" element={<AIAssistantPage />} />
-            <Route path="/assistant/:id" element={<AIAssistantPage />} />
-            <Route path="/family" element={<FamilyWelfarePage />} />
-            <Route path="/missed" element={<MissedOpportunitiesPage />} />
-            <Route path="/" element={<DashboardPage />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
+              <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+              <Route path="/assistant" element={<ProtectedRoute><AIAssistantPage /></ProtectedRoute>} />
+              <Route path="/assistant/:id" element={<ProtectedRoute><AIAssistantPage /></ProtectedRoute>} />
+              <Route path="/scheme" element={<ProtectedRoute><SchemePage /></ProtectedRoute>} />
+              <Route path="/scheme/:id" element={<ProtectedRoute><SchemeDetailPage /></ProtectedRoute>} />
+              <Route path="/family" element={<ProtectedRoute><FamilyWelfarePage /></ProtectedRoute>} />
+              <Route path="/missed" element={<ProtectedRoute><MissedOpportunitiesPage /></ProtectedRoute>} />
+              <Route path="/notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+              <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
+              <Route path="/" element={<DashboardPage />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </AuthProvider>
     </I18nextProvider>
   );
 }

@@ -11,6 +11,7 @@ import { RecentlyViewedSection } from '../components/dashboard/RecentlyViewedSec
 import { useAuthStore } from '../store/authStore';
 import { useEligibility } from '../hooks/useEligibility';
 import { getUnreadCount } from '../services/notification.service';
+import FloatingAIAssistant from '../components/FloatingAIAssistant';
 
 export function DashboardPage() {
   const { user } = useAuthStore();
@@ -53,6 +54,7 @@ export function DashboardPage() {
           <RecentlyViewedSection />
         </main>
       </div>
+          <FloatingAIAssistant />
     </div>
   );
 }

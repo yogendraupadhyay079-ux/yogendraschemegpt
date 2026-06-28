@@ -15,6 +15,7 @@ import {
 import { getFamilyMembers } from '../services/family.service';
 import type { MissedOpportunity, AIMissedSuggestion, MissedType } from '../services/missed-opportunities.service';
 import { cn } from '../components/ui/utils';
+import FloatingAIAssistant from '../components/FloatingAIAssistant';
 
 export function MissedOpportunitiesPage() {
   const { t } = useTranslation();
@@ -213,6 +214,7 @@ export function MissedOpportunitiesPage() {
           </div>
         </div>
       </main>
+          <FloatingAIAssistant />
     </div>
   );
 }

@@ -20,6 +20,7 @@ import {
   subscribeToFamilyMembers,
 } from '../services/family.service';
 import type { FamilyStats } from '../services/family.service';
+import FloatingAIAssistant from '../components/FloatingAIAssistant';
 
 export function FamilyWelfarePage() {
   const { t } = useTranslation();
@@ -220,6 +221,7 @@ export function FamilyWelfarePage() {
           isLoading={saving}
         />
       )}
+          <FloatingAIAssistant />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import ChatMessage from "./ChatMessage";
 import SuggestedQuestions from "./SuggestedQuestions";
 import { TypingIndicator } from "./TypingIndicator";
 
-import { streamGemini } from "../../services/gemini.service";
+import { streamGemini, askGemini } from "../../services/gemini.service";
 import { useAuthStore } from "../../store/authStore";
 
 interface Props {
@@ -74,7 +74,6 @@ export default function AIChat({
           controller.signal
         );
       } else {
-        const { askGemini } = await import("../../services/gemini.service");
         fullText = await askGemini(text);
         setStreamingText(fullText);
       }
